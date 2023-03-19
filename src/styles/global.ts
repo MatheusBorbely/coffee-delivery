@@ -1,7 +1,7 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
 export const  GlobalStyle = createGlobalStyle`
-
 
     * {
         margin: 0;
@@ -42,7 +42,10 @@ export const  GlobalStyle = createGlobalStyle`
             padding: 0 1rem;
         }
     }
+`
 
-    
-
+export const  GlobalContainer = styled.section`
+    padding: 2rem 1rem;
+    max-width: 70rem;
+    margin: 0 auto;
 `

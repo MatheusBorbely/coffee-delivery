@@ -1,8 +1,8 @@
-function Home() {
+import { Banner } from "../../components/Banner";
+
+
+export default function Home() {
     return (
-        <>
-        </>
+        <Banner />
     )
-  }
-  
-  export default Home;
+}
