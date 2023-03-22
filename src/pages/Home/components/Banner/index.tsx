@@ -1,4 +1,4 @@
-import { BannerContainer, BannerInfo, BannerTitle, BannerImage, BannerWrapper, BannerList, Circle } from './styles';
+import { BannerContainer, BannerInfo, BannerTitle, BannerImage, BannerWrapper, BannerList, BannerListItem } from './styles';
 import banner from '../../../../assets/banner.png';
 import { GlobalContainer } from '../../../../styles/global';
 import { Package, Timer, Coffee, ShoppingCart } from 'phosphor-react';
@@ -14,30 +14,22 @@ export function Banner() {
                 <p>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</p>
               </BannerTitle>
               <BannerList>
-                <li>
-                  <Circle variant='yellow-dark'>
-                    <ShoppingCart color="#ffffff" size={16} weight="fill"/>
-                  </Circle> 
+                <BannerListItem variantBackground='yellow-dark'>
+                  <ShoppingCart size={16} weight="fill" />
                   Compra simples e segura
-                </li>
-                <li>
-                  <Circle variant='base-text'>
-                    <Package color="#ffffff" size={16} weight="fill" />
-                  </Circle> 
+                </BannerListItem>
+                <BannerListItem variantBackground='base-text'>
+                  <Package size={16} weight="fill" />
                   Embalagem mantém o café intacto
-                </li>
-                <li>
-                  <Circle variant='yellow'>
-                    <Timer color="#ffffff" size={16} weight="fill" />
-                  </Circle>
+                </BannerListItem>
+                <BannerListItem variantBackground='yellow'>
+                  <Timer size={16} weight="fill" />
                   Entrega rápida e rastreada
-                </li>
-                <li>
-                  <Circle variant='purple'>
-                    <Coffee color="#ffffff" size={16} weight="fill" />
-                  </Circle>
+                </BannerListItem>
+                <BannerListItem variantBackground='purple'>
+                  <Coffee size={16} weight="fill" />
                   O café chega fresquinho até você
-                </li>
+                </BannerListItem>
               </BannerList>
           </BannerInfo>
           <BannerImage>
