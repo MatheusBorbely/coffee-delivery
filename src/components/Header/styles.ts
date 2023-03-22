@@ -5,15 +5,11 @@ interface HeaderProps {
     variantText: 'purple' | 'yellow';   
 }
 
-export const HeaderContainer = styled.header`
-    padding: 2rem 1rem;
-    max-width: 70rem;
-    margin: 0 auto;
-`
 export const HeaderNavBar= styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 2rem;
 `
 export const HeaderBox = styled.div<HeaderProps>`
     background-color: ${props => props.theme[props.variantButton]};

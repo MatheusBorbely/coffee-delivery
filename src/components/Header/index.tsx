@@ -3,7 +3,7 @@ import { GlobalContainer } from '../../styles/global'
 import logo from '../../assets/logo.svg'
 import { Link } from 'react-router-dom'
 import { MapPin } from 'phosphor-react'
-import { ShoppingCart } from '@phosphor-icons/react'
+import { ShoppingCart } from 'phosphor-react'
 
 export function Header() {
   return (
@@ -11,7 +11,7 @@ export function Header() {
       <HeaderNavBar>
 
         <Link to={"/"}>
-          <img src={logo} alt="coffe delivery" />
+          <img src={logo} alt="coffee delivery" />
         </Link>
 
         <HeaderWrapper>

@@ -45,7 +45,8 @@ export const  GlobalStyle = createGlobalStyle`
 `
 
 export const  GlobalContainer = styled.section`
-    padding: 2rem 1rem;
+    padding: 0 1rem;
     max-width: 70rem;
     margin: 0 auto;
+    box-sizing: content-box;
 `

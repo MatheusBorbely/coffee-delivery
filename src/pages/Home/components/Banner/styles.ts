@@ -1,17 +1,23 @@
 import styled from 'styled-components';
-import banner from '../../assets/banner-background.svg'
+import banner from '../../../../assets/banner-background.svg'
+
+interface BannerProps {
+    variant: 'yellow-dark' | 'base-text' | 'yellow' | 'purple'; 
+}
 
 export const BannerContainer = styled.section`
     background-image: url(${banner});
     background-size: cover;
     background-repeat: no-repeat;
+    padding-top: 5.875rem;
+    min-height: 544px;
+    background-position-y: 80%;
 `
 export const BannerWrapper = styled.div`
     display: flex;
-    gap: 3.5rem;
+    gap: 4.8125rem;
     justify-content: space-between;
     align-items: flex-start;
-    margin-top: 5.875rem;
 `
 
 export const BannerInfo = styled.div`
@@ -42,4 +48,27 @@ export const BannerTitle = styled.div`
 `
 export const BannerImage = styled.div`
 
+`
+export const BannerList = styled.ul`
+    display: flex;
+    justify-content: space-between;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+
+    & li{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .75rem;
+    }
+`
+export const Circle = styled.div<BannerProps>`
+    background-color: ${props => props.theme[props.variant]};
+    padding: .2rem;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
