@@ -1,15 +1,19 @@
 import styled from 'styled-components';
+import { GlobalContainer } from '../../styles/global';
 
 interface HeaderProps {
     variantButton: 'purple-light' | 'yellow-light';
     variantText: 'purple' | 'yellow';   
 }
 
-export const HeaderNavBar= styled.nav`
+export const HeaderWrapper= styled.header`
+    ${GlobalContainer}
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 2rem 0;
+
 `
 export const HeaderBox = styled.div<HeaderProps>`
     background-color: ${props => props.theme[props.variantButton]};
@@ -34,7 +38,7 @@ export const HeaderBox = styled.div<HeaderProps>`
         display: flex;
     }
 `
-export const HeaderWrapper = styled.section`
+export const HeaderNav = styled.section`
     display: flex;
     gap: 0.75rem;
 `

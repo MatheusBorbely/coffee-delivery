@@ -1,26 +1,40 @@
 import styled from 'styled-components';
-import banner from '../../../../assets/banner-background.svg'
+import banner from '../../../../assets/banner-background.svg';
+import { GlobalContainer } from '../../../../styles/global';
 
 interface BannerProps {
     variant: 'yellow-dark' | 'base-text' | 'yellow' | 'purple'; 
 }
 
 export const BannerContainer = styled.section`
-    background-image: url(${banner});
-    background-size: cover;
-    background-repeat: no-repeat;
     padding-top: 5.875rem;
-    min-height: 544px;
-    background-position-y: 80%;
+    height: 34rem;
+    &:before {
+        content: '';
+        background-image: url(${banner});
+        background-position: center;
+        position: absolute;
+        max-height: 34rem;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 6.75rem;
+        filter: blur(5px);
+        z-index: 1;
+    }
 `
 export const BannerWrapper = styled.div`
+    ${GlobalContainer}
+
     display: flex;
-    gap: 4.8125rem;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 4.8125rem;
+    position: relative;
+    z-index: 2;   
 `
 
-export const BannerInfo = styled.div`
+export const BannerInfo = styled.article`
     display: flex;
     gap: 4.125rem;
     align-items: center;
@@ -46,15 +60,12 @@ export const BannerTitle = styled.div`
         line-height: 1.625rem;
     }
 `
-export const BannerImage = styled.div`
-
-`
 export const BannerList = styled.ul`
     display: flex;
-    justify-content: space-between;
     gap: 2.5rem;
     flex-wrap: wrap;
-
+    gap: 1.2rem 2.8125rem;
+    
     & li{
         display: flex;
         justify-content: center;
