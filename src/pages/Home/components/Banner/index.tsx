@@ -1,12 +1,10 @@
-import { BannerContainer, BannerInfo, BannerTitle, BannerImage, BannerWrapper, BannerList, BannerListItem } from './styles';
+import { BannerContainer, BannerInfo, BannerTitle, BannerWrapper, BannerList, BannerListItem } from './styles';
 import banner from '../../../../assets/banner.png';
-import { GlobalContainer } from '../../../../styles/global';
 import { Package, Timer, Coffee, ShoppingCart } from 'phosphor-react';
 
 export function Banner() {
   return (
     <BannerContainer>
-      <GlobalContainer>
         <BannerWrapper>
           <BannerInfo>
               <BannerTitle>
@@ -32,11 +30,8 @@ export function Banner() {
                 </BannerListItem>
               </BannerList>
           </BannerInfo>
-          <BannerImage>
-            <img src={banner} alt="Copo  de café" />
-          </BannerImage>
+          <img src={banner} alt="Copo  de café" />
         </BannerWrapper>
-      </GlobalContainer>
     </BannerContainer>
   )
 }

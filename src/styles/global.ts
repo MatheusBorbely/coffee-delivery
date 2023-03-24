@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
+import {css} from 'styled-components';
 
 export const  GlobalStyle = createGlobalStyle`
 
@@ -44,8 +44,7 @@ export const  GlobalStyle = createGlobalStyle`
     }
 `
 
-export const  GlobalContainer = styled.section`
-    padding: 0 1rem;
+export const  GlobalContainer = css`
     max-width: 70rem;
     margin: 0 auto;
     box-sizing: content-box;
