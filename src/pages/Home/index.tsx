@@ -4,7 +4,7 @@ import api from '../../services/api';
 import { Product } from "../../interfaces/Product";
 import { Banner } from "./components/Banner";
 import { Card } from "./components/Card";
-import {ProductContainer, ProductGridContainer } from "./styles"
+import {ProductContainer, ProductGridContainer } from "./styles";
 
 interface IProductData{
     data: Product[]

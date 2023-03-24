@@ -14,7 +14,5 @@ export const ProductContainer = styled.section`
         line-height: 2.6rem;
     }
 `
-
 export const ProductGridContainer = styled.section`
-   
 `

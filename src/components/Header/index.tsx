@@ -1,8 +1,9 @@
-import { HeaderBox, HeaderNav, HeaderWrapper } from './styles';
-import logo from '../../assets/logo.svg';
 import { Link } from 'react-router-dom';
 import { MapPin } from 'phosphor-react';
 import { ShoppingCart } from 'phosphor-react';
+
+import logo from '../../assets/logo.svg';
+import { HeaderBox, HeaderNav, HeaderWrapper } from './styles';
 
 export function Header() {
   return (
