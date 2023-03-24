@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { GlobalContainer } from '../../styles/global';
 
-export const ProductsGroup = styled.section`
+export const ProductContainer = styled.section`
     ${GlobalContainer}
 
     display: flex;
@@ -13,4 +13,8 @@ export const ProductsGroup = styled.section`
         font-size: 2rem;
         line-height: 2.6rem;
     }
+`
+
+export const ProductGridContainer = styled.section`
+   
 `
