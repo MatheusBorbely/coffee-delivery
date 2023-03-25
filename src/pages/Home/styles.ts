@@ -15,4 +15,9 @@ export const ProductContainer = styled.section`
     }
 `
 export const ProductGridContainer = styled.section`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2rem;
+    row-gap: 2.5rem;
+    margin-top: 3.375rem;
 `

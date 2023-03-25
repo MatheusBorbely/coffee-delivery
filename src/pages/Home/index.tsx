@@ -4,24 +4,22 @@ import api from '../../services/api';
 import { Product } from "../../interfaces/Product";
 import { Banner } from "./components/Banner";
 import { Card } from "./components/Card";
-import {ProductContainer, ProductGridContainer } from "./styles";
+import {ProductContainer, ProductGridContainer } from "./styles"
 
-interface IProductData{
-    data: Product[]
-}
 export default function Home() {
-    const [products, setProducts ]= useState<IProductData | null>(null)
+    const [products, setProducts ]= useState<Product[] | null>(null)
 
     useEffect(() => {
         api
           .get("public/products.json")
-          .then((response) => setProducts(response.data))
+          .then((response) => setProducts(response.data.data))
           .catch((err) => {
             console.error("ops! ocorreu um erro" + err);
           });
     }, []);
     
-    const productsCards = products ? products.data.map((product: Product) => (<Card {...product}/>)) : <></>
+    const productsCards = products ? products.map((product: Product) => (<Card key={product.id} {...product}/>)) : <></>
+    
     return (
         <main>
             <Banner />
