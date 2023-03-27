@@ -16,18 +16,18 @@ export const HeaderWrapper= styled.header`
 
 `
 export const HeaderBox = styled.div<HeaderProps>`
-    background-color: ${props => props.theme[props.variantButton]};
     padding: 0.5rem;
     display: flex;
     align-items: center;
     border-radius: 6px;
     gap: 0.25rem;
+    background-color: ${props => props.theme[props.variantButton]};
 
     span{
         font-size: 0.875rem;
-        color: ${props => props.theme['purple-dark']};
         line-height: 1.1375rem;
         font-weight: 500;
+        color: ${props => props.theme['purple-dark']};
     }
     
     svg {

@@ -3,18 +3,16 @@ import styled from 'styled-components';
 interface ICardInput {
     variantColor: 'purple' | 'base-text';
 }
-
 export const CardProduct = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: ${props => props.theme['base-card']};
     padding: 1.25rem;
     border-radius: 6px 36px;
     gap: 1rem;
     padding-top: 7rem;
     position: relative;
-   
+    background-color: ${props => props.theme['base-card']};
 
     img{
         width: 120px;
@@ -33,12 +31,12 @@ export const CardType = styled.section`
     width: 100%;
     span{
         font-size: .625rem;
-        color: ${props => props.theme['yellow-dark']};
         font-weight: 700;
         text-transform: uppercase;
-        background-color: ${props => props.theme['yellow-light']};
         padding: .25rem .5rem; 
         border-radius : 100px;
+        color: ${props => props.theme['yellow-dark']};
+        background-color: ${props => props.theme['yellow-light']};
     }
 `
 export const CardInfo = styled.section`
@@ -54,21 +52,17 @@ export const CardInfo = styled.section`
     p{
         font-size: .875rem;
         line-height: 1.137rem;
-        color: ${props => props.theme['base-label']};
         text-align: center;
+        color: ${props => props.theme['base-label']};
     }
 `
-
 export const CardAction = styled.section`
-
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1.4375rem;
     padding: 0 .25rem;
-    width: 100%;
-    
-  
+    width: 100%; 
 `
 export const CardPrice = styled.section`
     display: flex;
@@ -84,7 +78,6 @@ export const CardPrice = styled.section`
     }
   
 `
-
 export const CardForm = styled.form`
     display: flex;
     align-items: center;
@@ -92,23 +85,22 @@ export const CardForm = styled.form`
     gap: 0.5rem;
 
     button{
-        background-color: ${props => props.theme['purple-dark']};
         padding: .5rem;
         border-radius: 6px;
         box-shadow:none;
         border:none;
         display: flex;
         cursor: pointer;
+        background-color: ${props => props.theme['purple-dark']};
     }
 `
-
 export const CardInput = styled.div<ICardInput>`
     display: flex;
     align-items: center;
     padding: 0.5rem;
-    background-color: ${props => props.theme['base-button']};
     border-radius: 6px;
     max-width: 4.5rem;
+    background-color: ${props => props.theme['base-button']};
 
     input{
         display: flex;

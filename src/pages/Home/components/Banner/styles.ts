@@ -56,8 +56,8 @@ export const BannerTitle = styled.div`
 
     p{
         font-size: 1.25rem;
-        color: ${props => props.theme['base-subtitle']};
         line-height: 1.625rem;
+        color: ${props => props.theme['base-subtitle']};
     }
 `
 export const BannerList = styled.ul`
@@ -75,12 +75,12 @@ export const BannerListItem = styled.li<BannerProps>`
         flex-direction: row;
 
         svg{
-            background-color: ${props => props.theme[props.variantBackground]};
             width: 2rem;
             height: 2rem;
             padding: 0.5rem;
             fill: white;
             border-radius: 50%;
             color: ${(props) => props.theme['white']};
+            background-color: ${props => props.theme[props.variantBackground]};
         }
 `
