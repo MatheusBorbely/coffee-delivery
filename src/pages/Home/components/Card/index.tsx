@@ -1,7 +1,9 @@
-import { Product } from "../../../../interfaces/Product";
-import { CardAction, CardForm, CardInfo, CardInput, CardPrice, CardProduct, CardType } from './styles';
 import { Minus, Plus, ShoppingCartSimple} from 'phosphor-react';
 import { useState } from "react";
+
+import { Product } from "../../../../interfaces/Product";
+import { CardAction, CardForm, CardInfo, CardInput, CardPrice, CardProduct, CardType } from './styles';
+
 
 export function Card({id, name, description, image, price, types}: Product ) {
   const [quantity, setQuantity] = useState<string>('1');
@@ -15,19 +17,19 @@ export function Card({id, name, description, image, price, types}: Product ) {
         {allTypes}
       </CardType>
       <CardInfo>
-        <h3>
+        <h2>
           {name}
-        </h3>
+        </h2>
         <p>
           {description}
         </p>
       </CardInfo>
       <CardAction>
         <CardPrice>
-          <h2>
+          <h3>
             <span>R$</span>
             {price.toString().replace('.', ',')}
-          </h2>
+          </h3>
         </CardPrice>
         <CardForm>
           <CardInput variantColor='purple'>

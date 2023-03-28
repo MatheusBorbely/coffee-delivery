@@ -1,5 +1,5 @@
-import { CheckoutInfoContainer, InputContainer } from "./styles";
 import { MapPinLine } from 'phosphor-react';
+import { CheckoutInfoContainer, InputContainer } from "./styles";
 
 export function CheckoutInfo() {
   return (

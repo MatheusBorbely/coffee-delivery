@@ -1,5 +1,5 @@
-import { CheckoutPaymentsContainer, PaymentMethod } from "./styles";
 import { CurrencyDollar, CreditCard, Money, Bank } from 'phosphor-react';
+import { CheckoutPaymentsContainer, PaymentMethod } from "./styles";
 
 export function CheckoutPayments() {
     return (

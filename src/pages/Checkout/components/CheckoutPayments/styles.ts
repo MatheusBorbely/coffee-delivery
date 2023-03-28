@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { CheckoutCard } from '../Card/styles';
 
-
 export const CheckoutPaymentsContainer = styled(CheckoutCard)`
     border-radius: 6px;
 

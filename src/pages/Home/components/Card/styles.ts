@@ -3,7 +3,7 @@ import styled from 'styled-components';
 interface ICardInput {
     variantColor: 'purple' | 'base-text';
 }
-export const CardProduct = styled.section`
+export const CardProduct = styled.article`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,14 +39,14 @@ export const CardType = styled.section`
         background-color: ${props => props.theme['yellow-light']};
     }
 `
-export const CardInfo = styled.section`
+export const CardInfo = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: .5rem;
 
-    h3{
+    h2{
         font-size: 1.25rem;
     }
     p{
@@ -64,11 +64,11 @@ export const CardAction = styled.section`
     padding: 0 .25rem;
     width: 100%; 
 `
-export const CardPrice = styled.section`
+export const CardPrice = styled.div`
     display: flex;
     align-items: center;
 
-    h2{
+    h3{
         font-size: 1.5rem;
     }
     span{

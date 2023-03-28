@@ -14,7 +14,7 @@ export const ProductContainer = styled.section`
         line-height: 2.6rem;
     }
 `
-export const ProductGridContainer = styled.section`
+export const ProductGridContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 2rem;
