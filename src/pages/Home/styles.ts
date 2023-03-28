@@ -19,5 +19,5 @@ export const ProductGridContainer = styled.section`
     grid-template-columns: repeat(4, 1fr);
     column-gap: 2rem;
     row-gap: 2.5rem;
-    margin-top: 3.375rem;
+    margin: 3.375rem 0;
 `
