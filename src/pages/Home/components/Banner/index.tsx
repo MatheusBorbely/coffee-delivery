@@ -1,6 +1,8 @@
-import { BannerContainer, BannerInfo, BannerTitle, BannerWrapper, BannerList, BannerListItem } from './styles';
-import banner from '../../../../assets/banner.png';
 import { Package, Timer, Coffee, ShoppingCart } from 'phosphor-react';
+
+import banner from '../../../../assets/banner.png';
+import { BannerContainer, BannerInfo, BannerTitle, BannerWrapper, BannerList, BannerListItem } from './styles';
+
 
 export function Banner() {
   return (
