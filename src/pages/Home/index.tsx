@@ -5,13 +5,14 @@ import { Product } from "../../interfaces/Product";
 import { Banner } from "./components/Banner";
 import { Card } from "./components/Card";
 import {ProductContainer, ProductGridContainer } from "./styles"
+import { Routes } from "../../utils/routes.enum";
 
 export default function Home() {
     const [products, setProducts ]= useState<Product[] | null>(null)
 
     useEffect(() => {
         api
-          .get("public/products.json")
+          .get(Routes.JSON_URL)
           .then((response) => setProducts(response.data.data))
           .catch((err) => {
             console.error("ops! ocorreu um erro" + err);

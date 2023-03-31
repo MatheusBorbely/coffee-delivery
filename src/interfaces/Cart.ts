@@ -1,4 +1,5 @@
-import { CartItem } from "./interfaces/Product";
+import { CartItem } from "./CartItem";
+
 export interface CartContextType {
     cartItems: CartItem[],
     quantityTotalItems: number,

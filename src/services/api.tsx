@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export default axios.create({
-  baseURL: "/",
+export default await axios.create({
+  baseURL: "",
   headers: {
     "Content-type": "application/json"
   }
