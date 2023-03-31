@@ -46,7 +46,7 @@ export const CardInfo = styled.header`
     flex-direction: column;
     gap: .5rem;
 
-    h2{
+    h3{
         font-size: 1.25rem;
     }
     p{

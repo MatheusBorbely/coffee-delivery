@@ -17,9 +17,9 @@ export function Card({id, name, description, image, price, types}: Product ) {
         {allTypes}
       </CardType>
       <CardInfo>
-        <h2>
+        <h3>
           {name}
-        </h2>
+        </h3>
         <p>
           {description}
         </p>
@@ -27,7 +27,7 @@ export function Card({id, name, description, image, price, types}: Product ) {
       <CardAction>
         <CardPrice>
           <h3>
-            <span>R$</span>
+            <span>R$ </span>
             {price.toString().replace('.', ',')}
           </h3>
         </CardPrice>
