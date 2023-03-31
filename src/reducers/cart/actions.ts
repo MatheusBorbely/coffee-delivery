@@ -6,7 +6,7 @@ export enum ActionTypes{
     CHANGE_QUANTITY_CART_ITEM = "CHANGE_QUANTITY_CART_ITEM"
 }
 
-export function addItemAction(productItem: CartItem){
+export function addToCartAction(productItem: CartItem){
     return {
         type: ActionTypes.ADD_TO_CART,
         payload: {
@@ -15,21 +15,21 @@ export function addItemAction(productItem: CartItem){
     }
 }
 
-export function removeItemAction(productId: number){
-    return {
-        type: ActionTypes.REMOVE_CART_ITEM,
-        payload: {
-            productId
-        }
-    }
-}
-
-export function changeQuantityItemAction(productId: number, quantity: number){
+export function changeQuantityCartItemAction(productId: number, quantity: number){
     return {
         type: ActionTypes.CHANGE_QUANTITY_CART_ITEM,
         payload: {
             productId,
             quantity
+        }
+    }
+}
+
+export function removeCartItemAction(productId: number){
+    return {
+        type: ActionTypes.REMOVE_CART_ITEM,
+        payload: {
+            productId
         }
     }
 }

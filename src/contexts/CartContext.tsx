@@ -1,37 +1,45 @@
 import { ReactNode, createContext, useReducer} from "react"
-import { CartContextType } from "../interfaces/Cart";
-import { CartItem } from "../interfaces/CartItem";
+
+import { addToCartAction, 
+         changeQuantityCartItemAction, 
+         removeCartItemAction 
+    } from "../reducers/cart/actions";
 import { cartReducer } from "../reducers/cart/reducer";
-import { ActionTypes, addItemAction, changeQuantityItemAction, removeItemAction } from "../reducers/cart/actions";
+import { CartItem } from "../interfaces/CartItem";
+import { CartContextType } from "../interfaces/Cart";
 
 interface CartContextProviderProps {
     children: ReactNode;
-}
+};
 
-export const CartContext  = createContext({} as CartContextType);
+const cartEmpty: CartContextType = {
+    cartItems: [],
+    quantityTotalItems: 0,
+    total: 0,
+    addToCart: () => {},
+    changeQuantityCartItem: () => {},
+    removeCartItem: () => {}
+};
+
+export const CartContext  = createContext<CartContextType>(cartEmpty);
 
 export function CartContextProvider({children}: CartContextProviderProps){
-   
-    const [cart, dispatch] = useReducer(cartReducer, {
-        cartItems: [],
-        quantityTotalItems: 0,
-        total: 0
-    } as CartContextType)
+    const [cart, dispatch] = useReducer(cartReducer,cartEmpty) ;
 
     function addToCart(productItem: CartItem){
-        dispatch(addItemAction(productItem))
-    }
-
-    function removeCartItem(productId: number){
-        dispatch(removeItemAction(productId))
-    }
+        dispatch(addToCartAction(productItem));
+    };
 
     function changeQuantityCartItem(productId: number, quantity: number){
-        dispatch(changeQuantityItemAction(productId,quantity))
-    }
+        dispatch(changeQuantityCartItemAction(productId,quantity));
+    };
+
+    function removeCartItem(productId: number){
+        dispatch(removeCartItemAction(productId));
+    };
 
     return (
-        <CartContext.Provider value={cart}>
+        <CartContext.Provider value={{...cart, addToCart, changeQuantityCartItem, removeCartItem}}>
             { children }
         </CartContext.Provider>
     )
