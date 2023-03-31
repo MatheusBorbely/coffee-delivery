@@ -1,15 +1,38 @@
 import { Minus, Plus, ShoppingCartSimple} from 'phosphor-react';
-import { useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 
 import { Product } from "../../../../interfaces/Product";
 import { CardAction, CardForm, CardInfo, CardInput, CardPrice, CardProduct, CardType } from './styles';
+import { CartContext } from '../../../../contexts/CartContext';
+import { CartItem } from '../../../../interfaces/CartItem';
 
 
 export function Card({id, name, description, image, price, types}: Product ) {
-  const [quantity, setQuantity] = useState<string>('1');
+  const {addToCart} = useContext(CartContext)
+  const [quantity, setQuantity] = useState<number>(1);
+
+  function handleAddToCart(event: FormEvent){
+    event.preventDefault();
+    const newProduct: CartItem ={
+      id,
+      name,
+      image,
+      price,
+      quantity
+    }
+    addToCart(newProduct)
+  }
+  function handleIncrement(){
+    setQuantity((quantity) => ++quantity);  
+  }
+  function handleDecrement(){
+    if(quantity - 1)  setQuantity((quantity) => --quantity);
+  }
+
   const allTypes = types.map( type => (
     <span>{type}</span>
   ))
+
   return (
     <CardProduct>
       <img src={image} alt={`Foto do produto - Café ${name}`} />
@@ -33,11 +56,11 @@ export function Card({id, name, description, image, price, types}: Product ) {
         </CardPrice>
         <CardForm>
           <CardInput variantColor='purple'>
-            <Minus size={14} weight="bold" />
-            <input value={quantity} onChange={(event) => setQuantity(event.target.value)} min="1" name="quantity" type="number" />
-            <Plus size={14} weight="bold" />
+            <Minus size={14} weight="bold" onClick={handleDecrement}/>
+            <input value={quantity} onChange={(event) => setQuantity(Number(event.target.value))} min="1" name="quantity" type="number" />
+            <Plus size={14} weight="bold" onClick={handleIncrement}/>
           </CardInput>
-          <button>
+          <button type="submit" onClick={handleAddToCart}>
             <ShoppingCartSimple size={22} color="#ffffff" weight="fill" />
           </button>
         </CardForm>
