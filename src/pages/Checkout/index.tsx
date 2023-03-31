@@ -1,7 +1,7 @@
-import { CheckoutCart } from './components/CheckoutCart'
-import { CheckoutInfo } from './components/CheckoutInfo'
-import { CheckoutPayments } from './components/CheckoutPayments'
-import { CheckoutColumns, CheckoutContainer } from './styles'
+import { CheckoutCart } from './components/CheckoutCart';
+import { CheckoutInfo } from './components/CheckoutInfo';
+import { CheckoutPayments } from './components/CheckoutPayments';
+import { CheckoutColumns, CheckoutContainer } from './styles';
 
 export default function  Checkout() {
   return (
