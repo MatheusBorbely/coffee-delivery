@@ -1,11 +1,14 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin } from 'phosphor-react';
 import { ShoppingCart } from 'phosphor-react';
 
 import logo from '../../assets/logo.svg';
-import { HeaderBox, HeaderNav, HeaderWrapper } from './styles';
+import { CartContext } from '../../contexts/CartContext';
+import { HeaderBox, HeaderCounter, HeaderNav, HeaderWrapper } from './styles';
 
 export function Header() {
+  const { quantityTotalItems } = useContext(CartContext)
   return (
     <HeaderWrapper>
       <Link to={"/"}>
@@ -18,6 +21,9 @@ export function Header() {
         </HeaderBox>
         <HeaderBox variantButton='yellow-light' variantText='yellow'>
           <Link to={"/checkout"}>
+            <HeaderCounter>
+              {quantityTotalItems}
+            </HeaderCounter>
             <ShoppingCart size={22} weight="fill"/>
           </Link>
         </HeaderBox>   

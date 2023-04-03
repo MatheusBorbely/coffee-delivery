@@ -4,8 +4,8 @@ import api from '../../services/api';
 import { Product } from "../../interfaces/Product";
 import { Banner } from "./components/Banner";
 import { Card } from "./components/Card";
-import {ProductContainer, ProductGridContainer } from "./styles"
 import { Routes } from "../../utils/routes.enum";
+import {ProductContainer, ProductGridContainer } from "./styles";
 
 export default function Home() {
     const [products, setProducts ]= useState<Product[] | null>(null)
@@ -15,7 +15,7 @@ export default function Home() {
           .get(Routes.JSON_URL)
           .then((response) => setProducts(response.data.data))
           .catch((err) => {
-            console.error("ops! ocorreu um erro" + err);
+            console.error("ops! Não foi possível buscar os produtos" + err);
           });
     }, []);
     

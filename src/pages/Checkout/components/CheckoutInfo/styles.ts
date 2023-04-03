@@ -9,11 +9,11 @@ export const CheckoutInfoContainer = styled(CheckoutCard)`
         display: flex;
         gap: .5rem;
     }
-    h3{
-        color: ${props => props.theme['base-subtitle']};
+    h3{ 
         font-size: 1rem;
         font-weight: 400;
         font-family: 'Roboto';
+        color: ${props => props.theme['base-subtitle']};
     }  
     span{
         font-size: .875rem;
@@ -32,15 +32,15 @@ export const InputContainer = styled.div`
     display: flex;
     gap: 1rem;
     input {
-        background: ${(props) => props.theme['base-input']};
-        border: 1px solid ${(props) => props.theme['base-button']};
         border-radius: 4px;
         height: 2.625rem;
         width: 100%;
         padding: 0.75rem;
+        background: ${(props) => props.theme['base-input']};
+        border: 1px solid ${(props) => props.theme['base-button']};
         ::placeholder {
-            color: ${(props) => props.theme['base-label']};
             line-height: 1.125rem;
+            color: ${(props) => props.theme['base-label']};
         }
     }
 `;

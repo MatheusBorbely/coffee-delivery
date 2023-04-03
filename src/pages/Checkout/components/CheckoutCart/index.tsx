@@ -1,24 +1,32 @@
+import {useContext} from 'react';
+
+import { CartContext } from '../../../../contexts/CartContext';
 import { ProductItem  } from '../ProductItem';
+import { floatToMoney } from '../../../../utils/money';
 import { CheckoutCartContainer, CheckoutPrices, CheckoutTotalPrice, CheckoutConfirmButton} from './styles';
 
-
 export function CheckoutCart() {
+  const { cartItems, total, removeCartItem, changeQuantityCartItem } = useContext(CartContext);
+
+  const frete = 3.50;
+  const totalOrder = total + frete;
+  const productItems = cartItems.map((item) => (<ProductItem key={item.id} item={item} removeCartItem={removeCartItem} changeQuantityCartItem={changeQuantityCartItem} />));
+
   return (
     <CheckoutCartContainer>
-      <ProductItem />
-      <ProductItem />
+      {productItems}
       <CheckoutPrices>
           <div>
               <span>Total de itens</span>
-              <span>R$ 29,70</span>
+              <span>{floatToMoney(total)}</span>
           </div>
           <div>
               <span>Entrega</span>
-              <span>R$ 3,50</span>
+              <span>{floatToMoney(frete)}</span>
           </div>
           <CheckoutTotalPrice>
               <h5>Total</h5>
-              <h5>R$ 33,20</h5>
+              <h5>{floatToMoney(totalOrder)}</h5>
           </CheckoutTotalPrice>
       </CheckoutPrices>
       <form action="/checkout/success">

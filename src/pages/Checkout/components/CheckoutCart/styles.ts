@@ -3,7 +3,7 @@ import { CheckoutCard } from '../Card/styles';
 
 export const CheckoutCartContainer = styled(CheckoutCard)`
     border-radius: 6px 44px;
-    max-width: 28rem;
+    width: 28rem;
 `
 export const CheckoutPrices = styled.div`
     display: flex;
@@ -22,19 +22,19 @@ export const CheckoutPrices = styled.div`
         gap: 0.5rem;
         width: 100%;
         span {
-            color: ${(props) => props.theme['base-text']};
             font-weight: 400;
             font-size: 0.875rem;
             line-height: 1.125rem;
+            color: ${(props) => props.theme['base-text']};
         }
     }
 `
 export const CheckoutTotalPrice = styled.div`
     h5 {
-        color: ${(props) => props.theme['base-subtitle']};
         font-weight: 700;
         font-size: 1.25rem;
         line-height: 1.625rem;
+        color: ${(props) => props.theme['base-subtitle']};
     }
 `
 export const CheckoutConfirmButton = styled.button`

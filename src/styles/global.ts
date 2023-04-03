@@ -29,6 +29,10 @@ export const  GlobalStyle = createGlobalStyle`
         list-style: none; 
     }
     
+    a{
+        text-decoration: none;
+    }
+    
     h1, h2, h3, h4{
         font-family: 'Baloo 2';
     }

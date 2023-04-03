@@ -21,6 +21,7 @@ export const HeaderBox = styled.div<HeaderProps>`
     align-items: center;
     border-radius: 6px;
     gap: 0.25rem;
+    position: relative;
     background-color: ${props => props.theme[props.variantButton]};
 
     span{
@@ -41,5 +42,19 @@ export const HeaderBox = styled.div<HeaderProps>`
 export const HeaderNav = styled.section`
     display: flex;
     gap: 0.75rem;
+`
+export const HeaderCounter = styled.section`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .75rem;
+    color: white;
+    position: absolute;
+    border-radius: 50%;
+    width: 1.25rem;
+    height: 1.25rem;
+    right: -8.35px;
+    top: -8px;
+    background-color: ${props => props.theme['yellow-dark']};
 `
 

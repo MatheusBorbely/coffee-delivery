@@ -1,11 +1,11 @@
-import { Minus, Plus, ShoppingCartSimple} from 'phosphor-react';
+import { ShoppingCartSimple} from 'phosphor-react';
 import { FormEvent, useContext, useState } from "react";
 
-import { Product } from "../../../../interfaces/Product";
-import { CardAction, CardForm, CardInfo, CardInput, CardPrice, CardProduct, CardType } from './styles';
 import { CartContext } from '../../../../contexts/CartContext';
+import { Product } from "../../../../interfaces/Product";
 import { CartItem } from '../../../../interfaces/CartItem';
-
+import {QuantitySelector} from '../../../../components/QuantitySelector';
+import { CardAction, CardForm, CardInfo, CardPrice, CardProduct, CardType } from './styles';
 
 export function Card({id, name, description, image, price, types}: Product ) {
   const {addToCart} = useContext(CartContext)
@@ -22,11 +22,9 @@ export function Card({id, name, description, image, price, types}: Product ) {
     }
     addToCart(newProduct)
   }
-  function handleIncrement(){
-    setQuantity((quantity) => ++quantity);  
-  }
-  function handleDecrement(){
-    if(quantity - 1)  setQuantity((quantity) => --quantity);
+
+  function handleChangeQuantity(quantitySelector: number){
+    setQuantity(quantitySelector)
   }
 
   const allTypes = types.map( type => (
@@ -55,11 +53,7 @@ export function Card({id, name, description, image, price, types}: Product ) {
           </h3>
         </CardPrice>
         <CardForm>
-          <CardInput variantColor='purple'>
-            <Minus size={14} weight="bold" onClick={handleDecrement}/>
-            <input value={quantity} onChange={(event) => setQuantity(Number(event.target.value))} min="1" name="quantity" type="number" />
-            <Plus size={14} weight="bold" onClick={handleIncrement}/>
-          </CardInput>
+          <QuantitySelector quantity={quantity} onChangeQuantitySelector={handleChangeQuantity} />
           <button type="submit" onClick={handleAddToCart}>
             <ShoppingCartSimple size={22} color="#ffffff" weight="fill" />
           </button>

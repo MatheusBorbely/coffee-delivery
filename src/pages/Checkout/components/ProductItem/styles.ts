@@ -5,7 +5,7 @@ export const ProductItemContainer = styled.section`
     justify-content: space-between;
     align-items: flex-start;
     padding: 0.5rem 0.25rem;
-    gap: 3.125rem;
+    gap: 2.5rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid ${props => props.theme['base-button']};
     background: ${(props) => props.theme['base-card']};
@@ -36,7 +36,7 @@ export const ProductItemContainer = styled.section`
         font-weight: 700;
         font-size: 1rem;
         line-height: 1.3125rem;
-        width: 3.4375rem;
+        width: max-content;
         color: ${(props) => props.theme['base-text']};
     }
 `
@@ -76,36 +76,5 @@ export const ProductItemActionRemove = styled.div`
         text-transform: uppercase;
         line-height: 1.1875rem;
         color: ${(props) => props.theme['base-text']};
-    }
-`
-export const ProductItemInput = styled.div`
-    display: flex;
-    align-items: center;
-    padding: 0.5rem;
-    border-radius: 6px;
-    max-width: 4.5rem;
-    background-color: ${props => props.theme['base-button']};
-
-    input{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: transparent;
-        border: none;
-        -moz-appearance: textfield; /* Firefox */
-        appearance: textfield; /* outros navegadores */
-        max-width: 1.5rem;
-        justify-content: center;
-        text-align: center;
-
-        &::-webkit-inner-spin-button,
-        &::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-    }
-    svg{
-        cursor: pointer;
-        color: ${props => props.theme.purple};
     }
 `
