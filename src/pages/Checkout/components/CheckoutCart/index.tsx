@@ -3,6 +3,7 @@ import {useContext} from 'react';
 import { CartContext } from '../../../../contexts/CartContext';
 import { ProductItem  } from '../ProductItem';
 import { floatToMoney } from '../../../../utils/money';
+import { CartItem } from '../../../../interfaces/CartItem';
 import { CheckoutCartContainer, CheckoutPrices, CheckoutTotalPrice, CheckoutConfirmButton} from './styles';
 
 export function CheckoutCart() {
@@ -10,7 +11,7 @@ export function CheckoutCart() {
 
   const frete = 3.50;
   const totalOrder = total + frete;
-  const productItems = cartItems.map((item) => (<ProductItem key={item.id} item={item} removeCartItem={removeCartItem} changeQuantityCartItem={changeQuantityCartItem} />));
+  const productItems = cartItems.map((item: CartItem) => (<ProductItem key={item.id} item={item} removeCartItem={removeCartItem} changeQuantityCartItem={changeQuantityCartItem} />));
 
   return (
     <CheckoutCartContainer>
