@@ -1,7 +1,9 @@
-import { MapPinLine } from 'phosphor-react';
-import { CheckoutInfoContainer, InputContainer } from "./styles";
-import { UserContext, UserContextType } from '../../../../contexts/UserContext';
 import { useContext } from 'react';
+import { MapPinLine } from 'phosphor-react';
+
+import { UserContext } from '../../../../contexts/UserContext';
+import { UserContextType } from '../../../../interfaces/User';
+import { CheckoutInfoContainer, InputContainer } from "./styles";
 
 export function CheckoutInfo() {
     const {user, setNewUser} = useContext<UserContextType>(UserContext);
