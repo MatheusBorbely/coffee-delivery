@@ -19,7 +19,7 @@ export default function Home() {
           });
     }, []);
     
-    const productsCards = products ? products.map((product: Product) => (<Card key={product.id} {...product}/>)) : <></>
+    const productsCards = products && products.map((product: Product) => (<Card key={product.id} {...product}/>)) 
     
     return (
         <main>

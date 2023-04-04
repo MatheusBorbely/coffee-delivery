@@ -1,7 +1,7 @@
 export interface User {
     cep: string,
     rua: string,
-    numero: number,
+    numero?: number,
     complemento?: string,
     bairro: string,
     cidade: string,
