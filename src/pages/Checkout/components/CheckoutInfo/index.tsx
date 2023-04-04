@@ -8,10 +8,8 @@ import { CheckoutInfoContainer, InputContainer } from "./styles";
 export function CheckoutInfo() {
     const {user, setNewUser} = useContext<UserContextType>(UserContext);
     return (
-       
         <CheckoutInfoContainer>
             <header>
-    
                 <MapPinLine size={22} />
                 <div>
                     <h3>Endereço de Entrega</h3>
@@ -25,13 +23,15 @@ export function CheckoutInfo() {
                         type='text'
                         placeholder='CEP'
                         name='CEP'
+                        value={user?.cep}
                     />
                 </InputContainer>
                 <InputContainer>
                     <input 
                         type='text'
                         placeholder='Rua'
-                        name='Rua' 
+                        name='Rua'
+                        value={user?.rua} 
                     />
                 </InputContainer>
                 <InputContainer>
@@ -39,12 +39,14 @@ export function CheckoutInfo() {
                         style={{ maxWidth: "min(200px, 100%)" }} 
                         type='number' 
                         placeholder='Número'
-                        name='Numero' 
+                        name='Numero'
+                        value={user?.numero}
                     />
                     <input
                         type='text'
                         placeholder='Complemento'
                         name='Complemento'
+                        value={user?.complemento}
                     />
                 </InputContainer>
                 <InputContainer>
@@ -52,18 +54,21 @@ export function CheckoutInfo() {
                         style={{ maxWidth: "min(200px, 100%)" }} 
                         type='text'
                         placeholder='Bairro'
-                        name='Bairro' 
+                        name='Bairro'
+                        value={user?.bairro}
                     />
                     <input 
                         style={{ maxWidth: "min(276px, 100%)" }} 
                         type='text' 
                         placeholder='Cidade'
-                        name='Cidade' 
+                        name='Cidade'
+                        value={user?.cidade} 
                     />
                     <input 
                         style={{ maxWidth: "min(60px, 100%)" }} 
                         type='text'
-                        placeholder='UF' 
+                        placeholder='UF'
+                        value={user?.uf} 
                     />
                 </InputContainer>
             </form>

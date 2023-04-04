@@ -4,6 +4,7 @@ export interface User {
     numero: number,
     complemento?: string,
     bairro: string,
+    cidade: string,
     uf: string;
 }
 
