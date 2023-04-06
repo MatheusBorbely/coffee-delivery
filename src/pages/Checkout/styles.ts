@@ -5,14 +5,17 @@ import { GlobalContainer } from '../../styles/global';
 export const CheckoutContainer = styled.section`
     ${GlobalContainer}
     
-    display: flex;
-    gap: 2rem;
-    justify-content: space-between;
+    form{
+        display: flex;
+        gap: 2rem;
+        justify-content: space-between;
 
-    h2{
-        font-size: 1.125rem;
-        color: ${props => props.theme['base-subtitle']};
+        h2{
+            font-size: 1.125rem;
+            color: ${props => props.theme['base-subtitle']};
+        }
     }
+    
 `
 export const CheckoutColumns = styled.article`
     display: flex;

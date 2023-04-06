@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from "react"
+import { ChangeEvent, ReactNode, createContext, useState } from "react"
 import { User, UserContextType } from "../interfaces/User";
 
 interface  UserContextProviderProps{
@@ -18,6 +18,7 @@ export function UserContextProvider({children} : UserContextProviderProps){
     function setNewUser(newUser: User) {
         setUser(newUser)
     }
+
     const contextValue = {user, setNewUser};
 
     return(

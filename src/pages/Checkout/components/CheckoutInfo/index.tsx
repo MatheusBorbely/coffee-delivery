@@ -1,13 +1,12 @@
-import { useContext, useState, ChangeEvent, useRef, useEffect } from 'react';
+import { useContext, useState, ChangeEvent, useEffect } from 'react';
 import { MapPinLine } from 'phosphor-react';
 import InputMask from 'react-input-mask';
 
 import { UserContext } from '../../../../contexts/UserContext';
 import { UserContextType, User } from '../../../../interfaces/User';
-import { CheckoutInfoContainer, InputContainer } from "./styles";
 import api from '../../../../services/api';
 import { Routes } from '../../../../utils/routes.enum';
-
+import { CheckoutInfoContainer, InputContainer } from "./styles";
 
 export function CheckoutInfo() {
     const {user, setNewUser} = useContext<UserContextType>(UserContext);
@@ -19,11 +18,11 @@ export function CheckoutInfo() {
 
     useEffect(() => {
         if (isCepValid) {
-            fetchAddressData();
+            searchAddressByCep();
         }
     }, [cep]);
 
-    async function fetchAddressData() {
+    async function searchAddressByCep() {
         try {
             const response = await api.get(`${Routes.VIA_CEP}/${cep}/json/`);
             const newUser: User = {
@@ -40,17 +39,20 @@ export function CheckoutInfo() {
             console.error("ops! Não foi possível buscar o cep" + error);
         }
     }
-    
-   /* function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+      
+    function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
         const { name, value } = event.target;
-        const newUser: User = {
-            ...user,
-            [name]: value ?
-        }
-        setNewUser(newUser)
-    } */
-      
-      
+        const parsedvalue = isNaN(Number(value)) ? value : Number(value);
+
+        if(user){
+            const newUser: User = {
+                ...user,
+                [name]: parsedvalue 
+            }
+            setNewUser(newUser)
+        } 
+    } 
+       
     return (
         <CheckoutInfoContainer>
             <header>
@@ -69,9 +71,8 @@ export function CheckoutInfo() {
                         name='CEP'
                         value={cep}
                         onChange={(event: ChangeEvent<HTMLInputElement>) => setCep(event.target.value)}
-                        onBlur={fetchAddressData}
-                        mask="99999-999"
-                        
+                        onBlur={searchAddressByCep}
+                        mask="99999-999"      
                     />
                 </InputContainer>
                 <InputContainer>
@@ -88,19 +89,19 @@ export function CheckoutInfo() {
                         style={{ maxWidth: "min(200px, 100%)" }} 
                         type='number' 
                         placeholder='Número'
-                        name='Numero'
+                        name='numero'
                         value={numero}
                         onChange={(event: ChangeEvent<HTMLInputElement>) => setNumero(Number(event.target.value))}
-                        onBlur={fetchAddressData}
+                        onBlur={handleInputChange}
 
                     />
                     <input
                         type='text'
                         placeholder='Complemento'
-                        name='Complemento'
+                        name='complemento'
                         value={complemento}
                         onChange={(event: ChangeEvent<HTMLInputElement>) => setComplemento(event.target.value)}
-                        onBlur={fetchAddressData}
+                        onBlur={handleInputChange}
                     />
                 </InputContainer>
                 <InputContainer>
