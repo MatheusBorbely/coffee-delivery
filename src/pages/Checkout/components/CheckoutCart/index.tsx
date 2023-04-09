@@ -34,11 +34,9 @@ export function CheckoutCart({ onSubmit }: CheckoutCartProps) {
               <h5>{floatToMoney(totalOrder)}</h5>
           </CheckoutTotalPrice>
       </CheckoutPrices>
-      <form action="/checkout/success">
-          <CheckoutConfirmButton type="submit">
-              confirmar pedido
-          </CheckoutConfirmButton>
-      </form>
+        <CheckoutConfirmButton type="submit" onClick={onSubmit}>
+            confirmar pedido
+        </CheckoutConfirmButton>
     </CheckoutCartContainer>
       
   )

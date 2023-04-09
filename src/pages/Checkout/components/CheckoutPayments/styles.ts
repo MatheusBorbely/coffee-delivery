@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { CheckoutCard } from '../Card/styles';
 
+interface PaymentMethodProps{
+    active: true | false;
+}
+
 export const CheckoutPaymentsContainer = styled(CheckoutCard)`
     border-radius: 6px;
 
@@ -24,9 +28,10 @@ export const CheckoutPaymentsContainer = styled(CheckoutCard)`
         display: flex;
         gap: .75rem;
     }
+    
+
 `
-export const PaymentMethod = styled.button`
-    background: ${(props) => props.theme['base-button']};
+export const PaymentMethod = styled.button<PaymentMethodProps>`
     border-radius: 6px;
     border: 0;
     display: flex;
@@ -35,22 +40,23 @@ export const PaymentMethod = styled.button`
     gap: 0.75rem;
     width: 33%;
     cursor: pointer;
+    border: 1px solid transparent;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 1.1875rem;
+    background: ${(props) => props.active ? props.theme['purple-light'] : props.theme['base-button']};
+    color: ${(props) =>  props.theme['base-text']};
+    border-color: ${(props) => props.active && props.theme['purple-dark']};
+    
+
     &:hover {
-        background: ${(props) => props.theme['base-hover']};
-        p {
-            color: ${(props) => props.theme['base-subtitle']};    
-        }
+        background: ${(props) => props.active ? `inerent` : props.theme['base-hover']};
+        color: ${(props) => props.theme['base-subtitle']};    
     }
     svg {
         color: ${(props) =>props.theme['purple']};
-    }
-    p {
-        color: ${(props) => props.theme['base-text']};
-        text-transform: uppercase;
-        font-family: 'Roboto', sans-serif;
-        font-weight: 400;
-        font-size: 0.75rem;
-        line-height: 1.1875rem;
     }
 `;
 

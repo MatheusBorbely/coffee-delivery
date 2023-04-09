@@ -1,12 +1,13 @@
 import { MapPin, Timer, CurrencyDollar } from "phosphor-react";
-import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import {useContext} from "react"
 import Delivery from '../../assets/Illustration.svg';
 import { UserContext } from "../../contexts/UserContext";
 import { CheckoutSuccessContainer, CheckoutSuccessContent, CheckoutSuccessInfo, CheckoutSuccessInfoBold } from './styles';
 
 export function CheckoutSuccess() {
-    const { paymentMethod } = useParams();
+    const location = useLocation();
+    const paymentMethod = location.state?.paymentMethod;
     const { user } = useContext(UserContext)
     return (
         <CheckoutSuccessContainer>
@@ -34,7 +35,7 @@ export function CheckoutSuccess() {
                         <CurrencyDollar size={32} />
                         <div>
                             <span>Pagamento na entrega</span>
-                            <CheckoutSuccessInfoBold>{paymentMethod}</CheckoutSuccessInfoBold>
+                            <CheckoutSuccessInfoBold>{paymentMethod.payment}</CheckoutSuccessInfoBold>
                         </div>
                     </CheckoutSuccessInfo>
                 </CheckoutSuccessContent>

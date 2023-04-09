@@ -1,4 +1,4 @@
-import { useContext, useState, ChangeEvent, useEffect } from 'react';
+import { useContext, useState, ChangeEvent, useEffect, InvalidEvent } from 'react';
 import { MapPinLine } from 'phosphor-react';
 import InputMask from 'react-input-mask';
 
@@ -8,7 +8,10 @@ import api from '../../../../services/api';
 import { Routes } from '../../../../utils/routes.enum';
 import { CheckoutInfoContainer, InputContainer } from "./styles";
 
-export function CheckoutInfo() {
+interface CheckoutInfProps {
+    onInvalidForm: (event: InvalidEvent<HTMLInputElement>) => void;
+}
+export function CheckoutInfo({onInvalidForm}: CheckoutInfProps) {
     const {user, setNewUser} = useContext<UserContextType>(UserContext);
     const [cep, setCep] = useState(user?.cep || '');
     const [numero, setNumero] = useState(user?.numero);
@@ -72,7 +75,9 @@ export function CheckoutInfo() {
                         value={cep}
                         onChange={(event: ChangeEvent<HTMLInputElement>) => setCep(event.target.value)}
                         onBlur={searchAddressByCep}
-                        mask="99999-999"      
+                        mask="99999-999"
+                        onInvalid={onInvalidForm}
+                        required      
                     />
                 </InputContainer>
                 <InputContainer>
@@ -82,6 +87,8 @@ export function CheckoutInfo() {
                         name='Rua'
                         value={user?.rua} 
                         readOnly
+                        onInvalid={onInvalidForm}
+                        required  
                     />
                 </InputContainer>
                 <InputContainer>
@@ -93,6 +100,8 @@ export function CheckoutInfo() {
                         value={numero}
                         onChange={(event: ChangeEvent<HTMLInputElement>) => setNumero(Number(event.target.value))}
                         onBlur={handleInputChange}
+                        onInvalid={onInvalidForm}
+                        required  
 
                     />
                     <input
@@ -112,6 +121,8 @@ export function CheckoutInfo() {
                         name='Bairro'
                         value={user?.bairro}
                         readOnly
+                        onInvalid={onInvalidForm}
+                        required  
                     />
                     <input 
                         style={{ maxWidth: "min(276px, 100%)" }} 
@@ -120,6 +131,8 @@ export function CheckoutInfo() {
                         name='Cidade'
                         value={user?.cidade} 
                         readOnly
+                        onInvalid={onInvalidForm}
+                        required  
                     />
                     <input 
                         style={{ maxWidth: "min(60px, 100%)" }} 
@@ -127,6 +140,8 @@ export function CheckoutInfo() {
                         placeholder='UF'
                         value={user?.uf}
                         readOnly
+                        onInvalid={onInvalidForm}
+                        required  
                     />
                 </InputContainer>
             </form>
