@@ -1,9 +1,13 @@
 import { MapPin, Timer, CurrencyDollar } from "phosphor-react";
-
+import { useParams } from "react-router-dom";
+import {useContext} from "react"
 import Delivery from '../../assets/Illustration.svg';
+import { UserContext } from "../../contexts/UserContext";
 import { CheckoutSuccessContainer, CheckoutSuccessContent, CheckoutSuccessInfo, CheckoutSuccessInfoBold } from './styles';
 
 export function CheckoutSuccess() {
+    const { paymentMethod } = useParams();
+    const { user } = useContext(UserContext)
     return (
         <CheckoutSuccessContainer>
             <header>
@@ -15,8 +19,8 @@ export function CheckoutSuccess() {
                     <CheckoutSuccessInfo color='purple'>
                         <MapPin size={32} weight="fill" />
                         <div>
-                            <span>Entrega em <CheckoutSuccessInfoBold> Rua João Daniel Martinelli, 102</CheckoutSuccessInfoBold></span>
-                            <span>Farrapos - Porto Alegre, RS</span>
+                            <span>Entrega em <CheckoutSuccessInfoBold> {user?.rua}, {user?.numero}</CheckoutSuccessInfoBold></span>
+                            <span>{user?.bairro} - {user?.cidade}, {user?.uf} </span>
                         </div>
                     </CheckoutSuccessInfo>
                     <CheckoutSuccessInfo color='yellow'>
@@ -30,7 +34,7 @@ export function CheckoutSuccess() {
                         <CurrencyDollar size={32} />
                         <div>
                             <span>Pagamento na entrega</span>
-                            <CheckoutSuccessInfoBold>Cartão de Crédito</CheckoutSuccessInfoBold>
+                            <CheckoutSuccessInfoBold>{paymentMethod}</CheckoutSuccessInfoBold>
                         </div>
                     </CheckoutSuccessInfo>
                 </CheckoutSuccessContent>

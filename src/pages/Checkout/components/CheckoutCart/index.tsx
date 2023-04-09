@@ -1,4 +1,4 @@
-import {useContext} from 'react';
+import {useContext, FormEvent} from 'react';
 
 import { CartContext } from '../../../../contexts/CartContext';
 import { ProductItem  } from '../ProductItem';
@@ -6,7 +6,11 @@ import { floatToMoney } from '../../../../utils/money';
 import { CartItem } from '../../../../interfaces/CartItem';
 import { CheckoutCartContainer, CheckoutPrices, CheckoutTotalPrice, CheckoutConfirmButton} from './styles';
 
-export function CheckoutCart() {
+interface CheckoutCartProps{
+  onSubmit: (event: FormEvent) => void;
+}
+
+export function CheckoutCart({ onSubmit }: CheckoutCartProps) {
   const { cartItems, total, removeCartItem, changeQuantityCartItem } = useContext(CartContext);
 
   const frete = 3.50;
