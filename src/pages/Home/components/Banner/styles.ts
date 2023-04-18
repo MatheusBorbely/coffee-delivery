@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import banner from '../../../../assets/banner-background.svg';
 import { GlobalContainer } from '../../../../styles/global';
+import { device } from '../../../../utils/device';
 
 interface BannerProps {
     variantBackground: 'yellow-dark' | 'base-text' | 'yellow' | 'purple'; 
@@ -10,6 +11,7 @@ interface BannerProps {
 export const BannerContainer = styled.section`
     padding-top: 5.875rem;
     height: 34rem;
+    
     &:before {
         content: '';
         background-image: url(${banner});
@@ -23,6 +25,10 @@ export const BannerContainer = styled.section`
         filter: blur(5px);
         z-index: 1;
     }
+
+    ${device.tablet}{
+       height: auto;
+    }
 `
 export const BannerWrapper = styled.div`
     ${GlobalContainer}
@@ -32,7 +38,16 @@ export const BannerWrapper = styled.div`
     align-items: flex-start;
     gap: 4.8125rem;
     position: relative;
-    z-index: 2;   
+    z-index: 2;
+
+    ${device.tablet}{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        img{
+            max-width: 100%;
+        }
+    }   
 `
 export const BannerInfo = styled.article`
     display: flex;
@@ -66,6 +81,14 @@ export const BannerList = styled.ul`
     row-gap: 1.25rem;
     column-gap: 2.5rem;
     list-style-type: none;
+
+    ${device.mobile}{
+        grid-template-columns: 1fr;
+    }
+    ${device.mobileL}{
+        grid-template-columns: 1fr 1fr;  
+    }
+    
 `
 export const BannerListItem = styled.li<BannerProps>`
         display: flex;

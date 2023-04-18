@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import {css} from 'styled-components';
+import { device } from '../utils/device';
 
 export const  GlobalStyle = createGlobalStyle`
     * {
@@ -35,7 +36,7 @@ export const  GlobalStyle = createGlobalStyle`
         font-family: 'Baloo 2';
     }
 
-    @media screen and (max-width: 768px) {
+    ${device.tablet} {
         html{
             font-size: 87.5%;
         }
@@ -45,7 +46,8 @@ export const  GlobalStyle = createGlobalStyle`
     }
 `
 export const  GlobalContainer = css`
-    max-width: 70rem;
+    width: 70rem;
     margin: 0 auto;
     box-sizing: content-box;
+    max-width: 100%;
 `

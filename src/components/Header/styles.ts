@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { GlobalContainer } from '../../styles/global';
+import { device } from '../../utils/device';
 
 interface HeaderProps {
     variantButton: 'purple-light' | 'yellow-light';
@@ -13,6 +14,15 @@ export const HeaderWrapper= styled.header`
     align-items: center;
     justify-content: space-between;
     padding: 2rem 0;
+
+    
+    ${device.tablet}{
+        padding: 2rem 1rem;
+        box-sizing: border-box;
+        img{
+            max-width: 65px;
+        }
+    }
 
 `
 export const HeaderBox = styled.div<HeaderProps>`

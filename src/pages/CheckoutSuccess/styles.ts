@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { GlobalContainer } from '../../styles/global';
+import { device } from '../../utils/device';
 
 export type ItemBackground = 'yellow-dark' | 'yellow' | 'purple';
 
@@ -31,10 +32,23 @@ export const CheckoutSuccessContainer = styled.article`
             line-height: 1.625rem;
             color: ${(props) => props.theme['base-subtitle']};
         }
+        ${device.tablet}{
+            h2, h6 {
+                text-align: center;
+            }
+        }
     }
     section {
         display: flex;
         gap: 6.375rem;
+        ${device.tablet}{
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    ${device.tablet}{
+        max-width: 90%;
     }
 `;
 
@@ -48,7 +62,8 @@ export const CheckoutSuccessContent = styled.div`
     border-radius: 6px 36px;
     position: relative;
     background: ${(props) => props.theme['background']};
-    min-width: 32.875rem;
+    width: 32.875rem;
+    max-width: 100%;
 
     &:before {
         content: '';
@@ -61,6 +76,7 @@ export const CheckoutSuccessContent = styled.div`
         z-index: -1;
         border-radius: 6px 36px;
     }
+
 `;
 
 export const CheckoutSuccessInfo = styled.div<ColorBackground>`

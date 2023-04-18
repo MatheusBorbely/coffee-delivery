@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../../../utils/device';
 
 export const ProductItemContainer = styled.section`
     display: flex;
@@ -9,6 +10,10 @@ export const ProductItemContainer = styled.section`
     padding-bottom: 1.5rem;
     border-bottom: 1px solid ${props => props.theme['base-button']};
     background: ${(props) => props.theme['base-card']};
+    
+    ${device.mobileL}{
+        align-items: center;
+    }
     
     article {
         display: flex;
@@ -30,6 +35,9 @@ export const ProductItemContainer = styled.section`
                 line-height: 1.3125rem;
                 color: ${(props) => props.theme['base-subtitle']};
             }
+        }
+        ${device.mobileL}{
+            flex-direction: column;
         }
     }
     span {

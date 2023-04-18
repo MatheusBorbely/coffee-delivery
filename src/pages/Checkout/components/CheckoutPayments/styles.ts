@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { CheckoutCard } from '../Card/styles';
+import { device } from '../../../../utils/device';
 
 interface PaymentMethodProps{
     active: true | false;
@@ -27,6 +28,10 @@ export const CheckoutPaymentsContainer = styled(CheckoutCard)`
     section{
         display: flex;
         gap: .75rem;
+
+        ${device.tablet}{
+            flex-direction: column;
+        }
     }
     
 
@@ -57,6 +62,11 @@ export const PaymentMethod = styled.button<PaymentMethodProps>`
     }
     svg {
         color: ${(props) =>props.theme['purple']};
+    }
+
+    ${device.tablet}{
+        width:100%;
+        justify-content: center;
     }
 `;
 
