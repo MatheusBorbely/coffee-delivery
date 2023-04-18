@@ -81,12 +81,9 @@ export const BannerList = styled.ul`
     row-gap: 1.25rem;
     column-gap: 2.5rem;
     list-style-type: none;
-
+   
     ${device.mobile}{
         grid-template-columns: 1fr;
-    }
-    ${device.mobileL}{
-        grid-template-columns: 1fr 1fr;  
     }
     
 `
